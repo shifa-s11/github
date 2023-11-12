@@ -1,42 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root{
+  width: 100%;
+}
+body{
+background-color: black;
+}
+.navbar{
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ top: -1rem;
+ position:relative;
+}
+.navhead{
+  color: white;
+  font-size: 6rem;
+  font-family: 'DM Serif Display', serif;
+}
+.logo{
+  height: 12rem;
+  width: 10rem;
+}
+.search{
+ display: flex;
+ justify-content: center;
+ margin: 3rem 0 2rem 0;
+}
+.search:hover{
+  transform: scale(1.1);
+}
+.search input{
+  width: 32rem;
+  height: 2.2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
+ border-bottom-left-radius: 2rem;
+ border-top-left-radius: 2rem;
+ border: 2px solid #30a5a7;
+}
+.search button{
+  display: flex;
+  background-color:#30a5a7;
+  width: 6rem;
+  height: 2.2rem;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  border-bottom-right-radius: 2rem;
+ border-top-right-radius: 2rem;
+  transition: none;
+  align-items: center;
+}
+.profile{
+  display: flex;
+justify-content: center;
+}
+.card{
+  margin: 2rem 0 2rem 0;
+  height: 23rem;
+  width: 18rem;
+  background-color:#30a5a7 ;
+  
+}
+.card .image{
+  height: 10rem;
+  width: 15rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
