@@ -10,10 +10,11 @@ const Profile = ({users}) =>{
  { userArray.map((user, id) =>(
   <div className="card" key={id}>
  <img  className="image"src={user?.avatar_url} alt="" />
-<p className="user">{user?.login}</p>
+<h4 className="user">{user?.login}</h4>
 <p className="followers"><span>Followers :</span> {user.followers}</p>
 <p><span>Public repos : </span>{user.public_repos}</p>
-<span>View more</span>
+<p><span>Twitter handle :</span>{users.twitter_username}</p>
+<span className="view">View more</span>
   </div>))}
   </div></>)}
   

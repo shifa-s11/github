@@ -2,8 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Nav from './Nav'
-import Users from './Users'
+import Nav from './components/Nav'
+import Users from './Routes/Users'
+
+
 
 
 function App() {
@@ -11,8 +13,11 @@ function App() {
 
   return (
     <>
-    <Nav/>
-   <Users/>
+    
+        <Nav />
+      <Users/>
+       
+
     </>
   )
 }

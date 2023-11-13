@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Profile from './Profile'
+import Profile from '../components/Profile'
+import Load from '../components/load';
 
 function Users() {
     const [users, setUsers] = useState([]);
+    const [load,setload] = useState(null);
     const BaseUrl = "https://api.github.com/users";
     const user = useRef('')
   
 function profiles(username){
+ 
   if(username){
+    setload(true)
   fetch(`https://api.github.com/users/${username}`)
   .then((response) => response.json())
   .then((data) => {
@@ -15,8 +19,11 @@ function profiles(username){
   })
   .catch((error) => {
     console.error('Error fetching user data:', error);
-  })} else {
+  }) .finally(() => {
+    setload(false);
+  }); }else {
     setUsers(null);
+    setload(null)
   }
     ;}
     function Search(){
@@ -34,7 +41,7 @@ function profiles(username){
        <div className="search">
     <input type="text" id="" placeholder="Search github username" ref={user} />
     <button onClick={Search}>SEARCH</button></div>
-       { users&&< Profile users={users}/>}
+       {load?<Load/> :users&&< Profile users={users}/>}
       </>
     );}
 
