@@ -5,8 +5,9 @@ import Lang from '../components/Lang';
 import Star from '../components/Star';
 import Users from './Users';
 import { Link } from 'react-router-dom';
-const username = localStorage.getItem('searchInput');
+
 const UsersData = () => {
+  const username = localStorage.getItem('searchInput');
   const [user, setUser] = useState(null);
   const [type, settype] = useState("followers");
 
