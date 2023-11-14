@@ -9,15 +9,9 @@ function Users() {
     const user = useRef('')
   const debounceTimeout = useRef(null);
   
-  // function debounce(func, delay) {
-  //   clearTimeout(debounceTimeout.current);
-  //   debounceTimeout.current = setTimeout(func, delay);
-  // }
   function debounce(func, delay) {
-    console.log('Debounce: Waiting for', delay, 'milliseconds before executing...');
     clearTimeout(debounceTimeout.current);
     debounceTimeout.current = setTimeout(() => {
-      console.log('Debounce: Executing the function!');
       func();
     }, delay);
   }
