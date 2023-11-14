@@ -26,7 +26,8 @@ return (
           followers.map((follower) => (
             <div key={follower.id} className="follower">
               <img src={follower.avatar_url} alt="" />
-              <p>{follower.login}</p>
+              <div className="followerp">
+              <p>{follower.login}</p></div>
             </div>
           ))
         ) : (

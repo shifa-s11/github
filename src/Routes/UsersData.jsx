@@ -40,35 +40,38 @@ const UsersData = () => {
   return (
     <>
       {user ? (
+        <div className="CardHolder">
         <div className='CardProfile'>
         <div className='avatar'>
       <img className='avatarimg'  src={user.avatar_url} alt="avatar" />
         </div>
         <div className="info">
-<p>{user.login}</p>
+<h1 className='user1'>{user.login}</h1>
 <p><span>Followers : </span> {user.followers}</p>
 <p><span>Following : </span>{user.following}</p>
 <p><span>Github-Bio : </span>{user.bio}</p>
 <p><span>Public-repo : </span>{user.public_repos}</p>
 <p><span>Public-gists :</span>{user.public_gists}</p>
-<p>
+{/* <p>
   <span>Twitter-handle : </span>
-  <a href={`https://twitter.com/${user.twitter_username}`} target="_blank" rel="noopener noreferrer">
-    click
+  <a  className = "twitter" href={`https://twitter.com/${user.twitter_username}`} target="_blank" rel="noopener noreferrer">
+  https://twitter.com/${user.twitter_username}
   </a>
-</p>
+</p> */}
 <p><span>Location : </span>{user.location}</p>
 <p><span>Created at : </span>{new Date(user.created_at).toLocaleDateString()}</p>
 <p><span>Updated at : </span>{new Date(user.updated_at).toLocaleDateString()}</p>
-<button><a href={user.html_url} target='_blank' rel='noopener noreferrer'>Visit</a></button>
+<div className='infobutton'>
+<button><a href={`https://twitter.com/${user.twitter_username}`} target='_blank' rel='noopener noreferrer'>Twitter</a> </button>
+<button><a href={user.html_url} target='_blank' rel='noopener noreferrer'>Visit</a></button></div>
 
+        </div>
         </div>
         </div>
       ) : (
         <p>No user data available.</p>
       )}
-      <Link to={`/github/`}>
-      <button>Back</button></Link>
+     
       {load?<Load/>:<Tabs type={type} setType = {settype} />}
      {/* <Tabs type={type} setType = {settype} /> */}
      {type === "followers" && (
@@ -91,6 +94,7 @@ const UsersData = () => {
         <Organ />
       </div>
      )}
+     
     </>
   );
 };

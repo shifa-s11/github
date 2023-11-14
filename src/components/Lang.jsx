@@ -35,7 +35,7 @@ const Lang = () => {
   }, );
 
   return (
-    <div>
+    <div className="language">
       <h2>User's Top 3 Languages</h2>
       <ul>
         {Languages.map((lang, index) => (

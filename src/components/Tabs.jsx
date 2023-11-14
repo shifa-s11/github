@@ -1,10 +1,11 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 const Tabs = ({type,setType}) => {
     return(
        <>
         <div className='footer'>
+          <div className="footerbutton">
       <button className={`button ${type === "starred-repos" ? 'active' : ''}`} onClick={() => setType("starred-repos")}>
   Starred-Repos
 </button>
@@ -16,9 +17,11 @@ const Tabs = ({type,setType}) => {
 </button>
 <button className={`button ${type === "organ" ? 'active' : ''}`} onClick={() => setType("organ")}>
 Organizations
-</button>
+</button></div>
+<Link className="back" to={`/github/`}>
+      <button className="backbutton" >Back</button></Link>
       </div>
-      <hr />
+      <hr className="hr"/>
   
        </>
     )

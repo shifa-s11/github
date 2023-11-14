@@ -26,11 +26,11 @@ const Stars = () => {
         {starRepos.length > 0 ? (
           starRepos.map((repo) => (
             <div key={repo.id} className="starred-repo">
-              <p><span>Repository Name:</span> {repo.name}</p>
-              <p><span>Owner:</span> {repo.owner.login}</p>
               <img
                 src={repo.owner.avatar_url }alt=""
               />
+                            <p><span>Repo-Name:</span> {repo.name}</p>
+                 <p><span>Owner:</span> {repo.owner.login}</p>
               <p><span>Default branch :</span>{repo.default_branch}</p>
               <p><span>Fork Count :</span>{repo.forks_count}</p>
               <p><span>Watchers:</span>{repo.watchers}</p>

@@ -11,7 +11,7 @@ const Profile = ({users}) =>{
   <div className="card" key={id}>
  <img  className="image"src={user?.avatar_url} alt="" />
 <h4 className="user">{user?.login}</h4>
-<p className="followers"><span>Followers :</span> {user.followers}</p>
+<p className=""><span>Followers :</span> {user.followers}</p>
 <p><span>Public repos : </span>{user.public_repos}</p>
 <p><span>Name :</span>{users.name}</p>
 <Link to= {`/github/${user?.login}/`}>
