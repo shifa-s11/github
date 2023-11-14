@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-
+import { Link } from "react-router-dom";
 
 const Profile = ({users}) =>{
   const userArray = Array.isArray(users) ? users : [users];
@@ -13,8 +13,9 @@ const Profile = ({users}) =>{
 <h4 className="user">{user?.login}</h4>
 <p className="followers"><span>Followers :</span> {user.followers}</p>
 <p><span>Public repos : </span>{user.public_repos}</p>
-<p><span>Twitter handle :</span>{users.twitter_username}</p>
-<span className="view">View more</span>
+<p><span>Name :</span>{users.name}</p>
+<Link to= {`/github/${user?.login}/`}>
+<span className="view">View more</span></Link>
   </div>))}
   </div></>)}
   

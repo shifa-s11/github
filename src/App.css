@@ -8,13 +8,14 @@
 }
 body{
 background-color: black;
+place-items: start;
 }
 .navbar{
   display: flex;
- align-items: center;
+  align-items: center;
  justify-content: center;
  top: -1rem;
- position:relative;
+
 }
 .navhead{
   color: white;
@@ -97,6 +98,7 @@ color: black;
 font-family: 'Agbalumo', cursive;
 }
 .view{
+ display: inline;
   background-color: black;
   color: white;
   width: 6rem;
@@ -129,4 +131,9 @@ font-family: 'Agbalumo', cursive;
     transform: rotate(360deg);
   }
 }
-
+.CardProfile{
+  display: flex;
+}
+.active{
+  color: blue;
+}
