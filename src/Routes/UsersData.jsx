@@ -3,11 +3,14 @@ import Tabs from '../components/Tabs';
 import Followers from '../components/Followers';
 import Lang from '../components/Lang';
 import Star from '../components/Star';
+import Organ from '../components/Organ';
 import Users from './Users';
+import Load from '../components/Load';
 import { Link } from 'react-router-dom';
 
 const UsersData = () => {
   const username = localStorage.getItem('searchInput');
+  const [load,setload] = useState(null);
   const [user, setUser] = useState(null);
   const [type, settype] = useState("followers");
 
@@ -15,6 +18,7 @@ const UsersData = () => {
     console.log(type)
     const username = localStorage.getItem('searchInput');
     if (username) {
+      setload(true)
       fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
         .then((data) => {
@@ -23,8 +27,11 @@ const UsersData = () => {
         })
         .catch((error) => {
           console.error('Error fetching user data:', error);
-        });
-    }
+        }).finally(() => {
+          setload(false);
+        }); }else {
+          setload(null)
+        };
   }, []);
   const Userurl = `https://api.github.com/users/${username}`
   
@@ -62,7 +69,8 @@ const UsersData = () => {
       )}
       <Link to={`/github/`}>
       <button>Back</button></Link>
-     <Tabs type={type} setType = {settype} />
+      {load?<Load/>:<Tabs type={type} setType = {settype} />}
+     {/* <Tabs type={type} setType = {settype} /> */}
      {type === "followers" && (
       <div>
       <Followers/>
@@ -76,6 +84,11 @@ const UsersData = () => {
           {type === "starred-repos" && (
       <div>
         <Star/>
+      </div>
+     )}
+        {type === "organ" && (
+      <div>
+        <Organ />
       </div>
      )}
     </>

@@ -22,25 +22,23 @@ const Stars = () => {
 
   return (
     <>
-      <h2>Starred Repositories</h2>
-      <div className="starred-repos-list">
-        {starRepos.map((repo) => (
-          <div key={repo.id} className="starred-repo">
-            <p>
-              <span>Repository Name:</span> {repo.name}
-            </p>
-            <p>
-              <span>Owner:</span> {repo.owner.login}
-            </p>
-            <img
-              src={repo.owner.avatar_url}
-              alt=""
-            />
-            <p><span>Default branch :</span>{repo.default_branch}</p>
-            <p><span>Fork Count :</span>{repo.forks_count}</p>
-         <p><span>Watchers:</span>{repo.watchers}</p>
-          </div>
-        ))}
+      <div className="starred">
+        {starRepos.length > 0 ? (
+          starRepos.map((repo) => (
+            <div key={repo.id} className="starred-repo">
+              <p><span>Repository Name:</span> {repo.name}</p>
+              <p><span>Owner:</span> {repo.owner.login}</p>
+              <img
+                src={repo.owner.avatar_url }alt=""
+              />
+              <p><span>Default branch :</span>{repo.default_branch}</p>
+              <p><span>Fork Count :</span>{repo.forks_count}</p>
+              <p><span>Watchers:</span>{repo.watchers}</p>
+            </div>
+          ))
+        ) : (
+          <p>No starred repositories found.</p>
+        )}
       </div>
     </>
   );

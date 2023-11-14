@@ -21,14 +21,17 @@ const Followers = () => {
 
 return (
   <>
-    <h2>Followers</h2>
-    <div className="followers-list">
-      {followers.map((follower) => (
-        <div key={follower.id} className="follower">
-          <img src={follower.avatar_url} alt={`Avatar of ${follower.login}`} />
-          <p>{follower.login}</p>
-        </div>
-      ))}
+    <div className="followers">
+    {followers.length > 0 ? (
+          followers.map((follower) => (
+            <div key={follower.id} className="follower">
+              <img src={follower.avatar_url} alt="" />
+              <p>{follower.login}</p>
+            </div>
+          ))
+        ) : (
+          <p>No followers found.</p>
+        )}
     </div>
   </>
 );

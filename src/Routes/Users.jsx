@@ -43,8 +43,8 @@ function profiles(username){
       const username = user.current.value;
       if (user.current.value !== '') {
         localStorage.setItem('searchInput', username);
-        // debounce(() => profiles(username), 300);
-        profiles(user.current.value);
+        debounce(() => profiles(username), 300);
+        // profiles(user.current.value);
       }
       else {
         setUsers(null);

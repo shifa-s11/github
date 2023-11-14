@@ -14,6 +14,9 @@ const Tabs = ({type,setType}) => {
 <button className={`button ${type === "lang" ? 'active' : ''}`} onClick={() => setType("lang")}>
  Languages
 </button>
+<button className={`button ${type === "organ" ? 'active' : ''}`} onClick={() => setType("organ")}>
+Organizations
+</button>
       </div>
       <hr />
   
