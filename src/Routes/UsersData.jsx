@@ -13,6 +13,7 @@ const UsersData = () => {
 
   useEffect(() => {
     console.log(type)
+    const username = localStorage.getItem('searchInput');
     if (username) {
       fetch(`https://api.github.com/users/${username}`)
         .then((response) => response.json())
@@ -24,7 +25,7 @@ const UsersData = () => {
           console.error('Error fetching user data:', error);
         });
     }
-  }, [type]);
+  }, []);
   const Userurl = `https://api.github.com/users/${username}`
   
 
