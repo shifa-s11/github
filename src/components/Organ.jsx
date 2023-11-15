@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 const Organ = () => {
   const [organizations, setOrganizations] = useState([]);
   const username = localStorage.getItem('searchInput');
-
+  const[visible,SetVisible] = useState(5)
   useEffect(() => {
     Organ();
   }, []);
@@ -20,12 +20,14 @@ const Organ = () => {
       console.error('Error fetching user organizations data:', error);
     });
 ;}
-
+const View = () => {
+  SetVisible((prevVisible) => prevVisible + 5);
+};
 return (
   <>
     <div className="organizations-list">
       {organizations.length > 0 ? (
-        organizations.map((org) => (
+        organizations.slice(0,visible).map((org) => (
           <div key={org.id} className="organization">
                  <p> <span></span> {org.login} </p>
              <img src={org.avatar_url} alt="" />
@@ -38,6 +40,9 @@ return (
         <p>No organizations found.</p>
       )}
     </div>
+    {organizations.length >= visible && (
+        <button onClick={View}>View More</button>
+      )}
   </>
 );
       }

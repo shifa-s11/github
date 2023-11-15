@@ -205,9 +205,11 @@ padding: 0 2rem 0rem  2rem;
   background-color: #30a5a7;
   margin: 0.7rem;
 }
+/* footer section */
 .footer{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 .footerbutton button{
   background-color: black;
@@ -341,10 +343,89 @@ font-size: 1.1rem;
  font-family :'Lilita One', sans-serif ;
  color: #1c6d6e;
  margin-bottom: 1rem;
+text-align: center;
 }
 .language li{
 color: white;
   font-size: 2rem;
   font-family:'Agbalumo', cursive ;
   padding: 0.5rem;
+}
+@media(max-width:800px){
+  .CardProfile .avatarimg{
+width: 18rem;
+  }
+  .user1{
+    font-size: 2.5rem;
+  }
+  .CardProfile .info{
+   font-size: 1.4rem;
+  }
+}
+@media(max-width:570px){
+  .CardProfile .avatarimg{
+width: 12rem;
+  }
+  .user1{
+    font-size: 1.8rem;
+  }
+  .CardProfile .info {
+   font-size: 1.2rem;
+  }
+  .navhead{
+    font-size: 3rem;
+  }
+  .infobutton button{
+    width: 6rem;
+    margin: 0.5rem;
+  }
+  .infobutton a{
+    font-size: 1rem;
+  }
+  .search input{
+    width: 25rem;
+  }
+}
+@media(max-width:470px){
+  .CardProfile .avatarimg{
+width: 8rem;
+height: 8rem;
+  }
+  .user1{
+    font-size: 1.2rem;
+  }
+  .CardProfile .info{
+   font-size: 1rem;
+   margin: 0;
+   margin-top: 1rem;
+  }
+  .navhead{
+    font-size: 2rem;
+  }
+  .search input{
+    width: 14rem;
+  }
+  .search button{
+    width: 3rem;
+    font-size: 0.6rem;
+  }
+  .logo{
+    width: 7rem;
+    height: 10rem;
+  }
+  .CardProfile{
+    grid-template-columns: 1fr;
+  }
+  .footerbutton button{
+    font-size: 1rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .backbutton{
+    width: 6rem;
+  }
+  .starred-repo{
+    font-size: 1rem;
+    min-width: 12rem;
+  }
 }

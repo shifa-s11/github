@@ -14,6 +14,7 @@ const UsersData = () => {
   const [user, setUser] = useState(null);
   const [type, settype] = useState("followers");
 
+
   useEffect(() => {
     console.log(type)
     const username = localStorage.getItem('searchInput');
@@ -34,7 +35,6 @@ const UsersData = () => {
         };
   }, []);
   const Userurl = `https://api.github.com/users/${username}`
-  
 
   
   return (
@@ -49,7 +49,7 @@ const UsersData = () => {
 <h1 className='user1'>{user.login}</h1>
 <p><span>Followers : </span> {user.followers}</p>
 <p><span>Following : </span>{user.following}</p>
-<p><span>Github-Bio : </span>{user.bio}</p>
+<p><span>Github-Bio : </span>{user.bio ||( "No Bio Available")} </p>
 <p><span>Public-repo : </span>{user.public_repos}</p>
 <p><span>Public-gists :</span>{user.public_gists}</p>
 {/* <p>
@@ -58,7 +58,7 @@ const UsersData = () => {
   https://twitter.com/${user.twitter_username}
   </a>
 </p> */}
-<p><span>Location : </span>{user.location}</p>
+<p><span>Location : </span>{user.location ||( "Not Available") }</p>
 <p><span>Created at : </span>{new Date(user.created_at).toLocaleDateString()}</p>
 <p><span>Updated at : </span>{new Date(user.updated_at).toLocaleDateString()}</p>
 <div className='infobutton'>
