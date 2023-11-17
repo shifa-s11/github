@@ -75,7 +75,7 @@ const UsersData = () => {
       {load?<Load/>:<Tabs type={type} setType = {settype} />}
      {/* <Tabs type={type} setType = {settype} /> */}
      {type === "followers" && (
-      <div>
+      <div className='Follow'>
       <Followers/>
       </div>
      )}
@@ -85,7 +85,7 @@ const UsersData = () => {
       </div>
      )}
           {type === "starred-repos" && (
-      <div>
+      <div className='Follow'>
         <Star/>
       </div>
      )}

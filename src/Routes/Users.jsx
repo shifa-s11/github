@@ -48,6 +48,13 @@ function profiles(username){
 console.log('Render Users component');
     return (
       <>
+          {/* <form onSubmit={Search} className='search'>
+     
+        <input type="text" placeholder="Enter username"  value={user} 
+            onChange={(e) => setUsername(e.target.value)}/>
+  
+      <button type="submit">SEARCH</button>
+    </form> */}
        <div className="search">
     <input type="text" id="" placeholder="Search github username" ref={user} />
     <button onClick={Search}>SEARCH</button></div>

@@ -5,6 +5,7 @@ const Organ = () => {
   const [organizations, setOrganizations] = useState([]);
   const username = localStorage.getItem('searchInput');
   const[visible,SetVisible] = useState(5)
+  const[Load,setLoad] = useState(true)
   useEffect(() => {
     Organ();
   }, []);
@@ -14,6 +15,7 @@ const Organ = () => {
     .then((response) => response.json())
     .then((data) => {
       setOrganizations(data);
+      setLoad(false);
       console.log(data);
     })
     .catch((error) => {
@@ -25,6 +27,7 @@ const View = () => {
 };
 return (
   <>
+  {Load?(<p className="error">Loading.....</p>):
     <div className="organizations-list">
       {organizations.length > 0 ? (
         organizations.slice(0,visible).map((org) => (
@@ -37,9 +40,9 @@ return (
           </div>
         ))
       ) : (
-        <p>No organizations found.</p>
+        <p className="error" style={{marginTop:"0.2rem"}}>No organizations found.</p>
       )}
-    </div>
+    </div>}
     {organizations.length >= visible && (
         <button onClick={View}>View More</button>
       )}

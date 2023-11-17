@@ -5,6 +5,7 @@
 }
 #root{
   width: 100%;
+  
 }
 body{
 background-color: black;
@@ -204,12 +205,14 @@ padding: 0 2rem 0rem  2rem;
 .backbutton{
   background-color: #30a5a7;
   margin: 0.7rem;
+  font-family:'Lilita One', sans-serif ;
 }
 /* footer section */
 .footer{
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+
 }
 .footerbutton button{
   background-color: black;
@@ -218,6 +221,7 @@ padding: 0 2rem 0rem  2rem;
   font-size: 1.3rem;
   gap: 2rem;
   margin: 0.7rem;
+  font-weight: 700;
 }
 .button{
   color: white;
@@ -262,6 +266,17 @@ border-radius: 1.5rem;
 border: 3px solid #30a5a7;
 box-shadow: 3px 3px 3px #30a5a7;
 }
+.ViewMore{
+ background-color: #30a5a7;
+  text-align: center;
+  font-family:'Lilita One', sans-serif ;
+}
+.Follow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* starred repo */
 .starred{
   display: flex;
   flex-wrap: wrap;
@@ -428,4 +443,14 @@ height: 8rem;
     font-size: 1rem;
     min-width: 12rem;
   }
+}
+.error{
+  color: white;
+background-color: black;
+font-size: 2.5rem;
+margin: 0.2rem;
+font-weight: 600;
+font-family:'Lilita One', sans-serif ; 
+letter-spacing: 2px;
+text-align: center;
 }

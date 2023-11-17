@@ -8,15 +8,18 @@ const Profile = ({users}) =>{
         <>
 <div className="profile">
  { userArray.map((user, id) =>(
-  <div className="card" key={id}>
+   <div>
+      {user && user.login ? (
+         <div className="card" key={id}>
+        <>
  <img  className="image"src={user?.avatar_url} alt="" />
 <h4 className="user">{user?.login}</h4>
 <p className=""><span>Followers :</span> {user.followers}</p>
 <p><span>Public repos : </span>{user.public_repos}</p>
 <p><span>Name :</span>{users.name}</p>
 <Link to= {`/github/${user?.login}/`}>
-<span className="view">View more</span></Link>
-  </div>))}
+<span className="view">View more</span></Link></>
+  </div>):(<p className="error" style={{marginTop:"7rem"}}>No User Found ....</p>)}</div>))}
   </div></>)}
   
 export default Profile
