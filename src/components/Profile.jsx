@@ -19,7 +19,7 @@ const Profile = ({users}) =>{
 <p><span>Name :</span>{users.name}</p>
 <Link to= {`/github/${user?.login}/`}>
 <span className="view">View more</span></Link></>
-  </div>):(<p className="error" style={{marginTop:"7rem"}}>No User Found ....</p>)}</div>))}
+  </div>):(<p className="error" style={{marginTop:"2rem"}}>No User Found ....</p>)}</div>))}
   </div></>)}
   
 export default Profile
