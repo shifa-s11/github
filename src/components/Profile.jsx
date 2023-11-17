@@ -7,10 +7,11 @@ const Profile = ({users}) =>{
     return(
         <>
 <div className="profile">
- { userArray.map((user, id) =>(
-   <div>
+ { userArray.map((user) =>(
+    <div key={user.id}>
+
       {user && user.login ? (
-         <div className="card" key={id}>
+         <div className="card" >
         <>
  <img  className="image"src={user?.avatar_url} alt="" />
 <h4 className="user">{user?.login}</h4>

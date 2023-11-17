@@ -1,65 +1,62 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Profile from '../components/Profile'
+import Profile from '../components/Profile';
 import Load from '../components/Load';
 
 function Users() {
-    const [users, setUsers] = useState([]);
-    const [load,setload] = useState(null);
-    const BaseUrl = "https://api.github.com/users";
-    const user = useRef('')
-  const debounceTimeout = useRef(null);
-  
+  const [users, setUsers] = useState([]);
+  const [load, setLoad] = useState(null);
+  const user = useRef('');
+
   function debounce(func, delay) {
-    clearTimeout(debounceTimeout.current);
-    debounceTimeout.current = setTimeout(() => {
+    let timeoutId;
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
       func();
     }, delay);
   }
-function profiles(username){
-  console.log('Fetching user data for:', username);
-  if(username){
-    setload(true)
-  fetch(`https://api.github.com/users/${username}`)
-  .then((response) => response.json())
-  .then((data) => {
-    setUsers(data);
-  })
-  .catch((error) => {
-    console.error('Error fetching user data:', error);
-  }) .finally(() => {
-    setload(false);
-  }); }else {
-    setUsers(null);
-    setload(null)
+
+  function profiles(username) {
+    console.log('Fetching user data for:', username);
+    if (username) {
+      setLoad(true);
+      fetch(`https://api.github.com/users/${username}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUsers(data);
+        })
+        .catch((error) => {
+          console.error('Error fetching user data:', error);
+        })
+        .finally(() => {
+          setLoad(false);
+        });
+    } else {
+      setUsers(null);
+      setLoad(null);
+    }
   }
-    ;}
-    function Search(){
-      const username = user.current.value;
-      if (user.current.value !== '') {
-        localStorage.setItem('searchInput', username);
-        debounce(() => profiles(username), 300);
-        // profiles(user.current.value);
-      }
-      else {
-        setUsers(null);
-      }
+
+  function Search (event) {
+    event.preventDefault();
+    const username = user.current.value;
+    if (username !== '') {
+      localStorage.setItem('searchInput', username);
+      debounce(() => profiles(username), 300);
+    } else {
+      setUsers(null);
+    }
+  }
+
+  console.log('Render Users component');
+  return (
+    <>
+      <form onSubmit={Search} className="search">
+        <input type="text" id="" placeholder="Search github username" ref={user} />
+        <button type="submit">SEARCH</button>
+      </form>
+      {load ? <Load /> : users && <Profile users={users} />}
+    </>
+  );
 }
 
-console.log('Render Users component');
-    return (
-      <>
-          {/* <form onSubmit={Search} className='search'>
-     
-        <input type="text" placeholder="Enter username"  value={user} 
-            onChange={(e) => setUsername(e.target.value)}/>
-  
-      <button type="submit">SEARCH</button>
-    </form> */}
-       <div className="search">
-    <input type="text" id="" placeholder="Search github username" ref={user} />
-    <button onClick={Search}>SEARCH</button></div>
-       {load?<Load/> :users&&< Profile users={users}/>}
-      </>
-    );}
-  
-export default Users
+export default Users;
