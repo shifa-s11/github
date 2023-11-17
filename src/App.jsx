@@ -5,7 +5,8 @@ import './App.css'
 import Nav from './components/Nav'
 import Users from './Routes/Users'
 import UsersData from './Routes/UsersData'
-import { Routes,Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+// import { Routes,Route } from 'react-router-dom'
 
 function App() {
 
